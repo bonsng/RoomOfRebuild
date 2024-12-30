@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <>
-      <div>Contact Page</div>
+      <div>Contact</div>
     </>
   );
 }
