@@ -75,13 +75,13 @@ function GlobalNavItem({
     <>
       <div className="relative group">
         <Link
-          className="block mx-3 my-3 px-2 py-2  text-gray-500  hover:text-black transition-all duration-300"
+          className="block mx-3 my-3 px-2 py-2  text-gray-500  hover:text-black transition-all duration-500"
           onClick={close}
           href={`/${item.slug}`}
         >
           {item.name}
         </Link>
-        <span className="absolute bottom-0 bg-black h-[2px] w-0 left-4 group-hover:w-[90%] transition-all duration-300"></span>
+        <span className="absolute bottom-0 bg-black h-[2px] w-0 left-4 group-hover:w-[90%] transition-all duration-500"></span>
       </div>
     </>
   );
