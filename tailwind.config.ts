@@ -14,6 +14,7 @@ export default {
         foreground: "var(--foreground)",
         "rice-cake": "#fffef2",
         "chacol-gray": "#4F4F4F",
+        "onyx-black": "#3D3D3D",
       },
     },
   },

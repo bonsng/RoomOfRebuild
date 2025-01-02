@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./globalicon.css";
 import GlobalNav from "@/app/global-nav";
+import Footer from "./footer";
 
 export const metadata: Metadata = {
   title: "RoomOf",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className="overflow-y-auto ">
         <GlobalNav />
         <div className="pt-[2.5rem] z-0">{children}</div>
+        <Footer />
       </body>
     </html>
   );
