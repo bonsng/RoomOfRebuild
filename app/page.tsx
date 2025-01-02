@@ -1,4 +1,5 @@
 import Carousel from "@/ui/MainPage/Carousel";
+import Description from "@/ui/MainPage/Description";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <Carousel />
 
       {/* Description Part */}
+      <Description />
     </main>
   );
 }
