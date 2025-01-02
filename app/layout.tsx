@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./globalicon.css";
 import GlobalNav from "@/app/global-nav";
 
 export const metadata: Metadata = {

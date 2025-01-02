@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { CarouselItem, carouselItems } from "./carouselItem";
 import Image from "next/image";
 import image1 from "@/public/testImages/roomImage1.jpeg";
@@ -35,17 +34,19 @@ export default function Carousel() {
         ))}
       </div>
       <div className="flex justify-center align-middle w-screen mt-2">
-        <MdKeyboardArrowLeft
+        <span
+          className="material-symbols-outlined cursor-pointer"
           onClick={clickLeft}
-          size={24}
-          style={{ cursor: "pointer" }}
-        />
-        <div>{num + 1} / 3</div>
-        <MdKeyboardArrowRight
+        >
+          chevron_left
+        </span>
+        <div className="font-extralight">{num + 1} / 3</div>
+        <span
+          className="material-symbols-outlined cursor-pointer"
           onClick={clickRight}
-          style={{ cursor: "pointer" }}
-          size={24}
-        />
+        >
+          chevron_right
+        </span>
       </div>
     </>
   );
@@ -67,7 +68,7 @@ function CarouselCard({
         style={style}
       >
         <Image src={images[idx]} alt={`image${item.id}`} className="lg:w-1/2" />
-        <div className="lg:w-1/2 py-20 px-10">
+        <div className="lg:w-1/2 py-20 px-24 bg-[#EFF3EA]">
           <h1 className="text-4xl">RoomOf</h1>
           <p>{item.text}</p>
         </div>
