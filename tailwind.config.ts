@@ -13,6 +13,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         "rice-cake": "#fffef2",
+        "chacol-gray": "#4F4F4F",
       },
     },
   },
