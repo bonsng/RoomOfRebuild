@@ -8,6 +8,7 @@ import image2 from "@/public/testImages/roomImage2.jpeg";
 import image3 from "@/public/testImages/roomImage3.jpeg";
 import { useInterval } from "@/util/custom-hook/use-interval";
 import useScrollMove from "@/util/custom-hook/use-scroll-move";
+import Link from "next/link";
 
 const images = [image1, image2, image3];
 
@@ -74,10 +75,13 @@ function CarouselCard({
         <div className="lg:w-1/2 py-20 px-24 bg-[#f6f5e8]">
           <h1 className="text-4xl">RoomOf</h1>
           <p className="mt-5">{item.text}</p>
-          <div className="flex align-middle justify-between px-4 py-4 border-black border-[0.1px] w-1/2 font-normal mt-10 hover:cursor-pointer hover:text-[#f6f5e8] hover:bg-onyx-black transition-all">
+          <Link
+            href="/example-room"
+            className="flex align-middle justify-between px-4 py-4 border-black border-[0.1px] w-1/2 font-normal mt-10 hover:cursor-pointer hover:text-[#f6f5e8] hover:bg-onyx-black transition-all"
+          >
             <span>예시공간 입장하기</span>
             <span className="material-symbols-outlined">arrow_forward</span>
-          </div>
+          </Link>
         </div>
       </div>
     </>
