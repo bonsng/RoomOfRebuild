@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import React from "react";
+import RoomNav from "./room-nav";
 
 export const metadata: Metadata = {
   title: "RoomOf ExampleRoom",
@@ -13,9 +14,8 @@ export default function ExampleRoomLayout({
 }>) {
   return (
     <>
-      <html lang="en">
-        <body className="overflow-y-auto ">{children}</body>
-      </html>
+      <RoomNav />
+      <body className="overflow-y-auto ">{children}</body>
     </>
   );
 }
