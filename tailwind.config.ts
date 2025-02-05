@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const { heroui } = require("@heroui/theme");
 
 export default {
   content: [
@@ -6,6 +7,8 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./ui/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@heroui/theme/dist/components/input.js",
+    "./node_modules/@heroui/theme/dist/components/button.js",
   ],
   theme: {
     extend: {
@@ -16,7 +19,11 @@ export default {
         "chacol-gray": "#4F4F4F",
         "onyx-black": "#3D3D3D",
       },
+      boxShadow: {
+        home: "0 10px 25px rgba(0, 0, 0, 0.1)",
+      },
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [heroui()],
 } satisfies Config;
