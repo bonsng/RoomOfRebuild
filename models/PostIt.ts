@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 export interface PostIts extends mongoose.Document {
   position: number[];
   text: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const PostItsSchema = new mongoose.Schema<PostIts>(

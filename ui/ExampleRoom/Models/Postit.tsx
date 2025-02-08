@@ -1,9 +1,13 @@
-import { useSpring, animated } from "@react-spring/three";
-import { Clone, useGLTF, useTexture } from "@react-three/drei";
-import { useState } from "react";
+import { Clone, Text, useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
-export default function Posit({ position }: { position: number[] }) {
+export default function Posit({
+  position,
+  text,
+}: {
+  position: number[];
+  text: string;
+}) {
   const { scene }: any = useGLTF(`/models/postit.glb`);
   const postitTexture = useTexture(`/models/postit-diffuse.jpg`);
   const postitTextureNormal = useTexture(`/models/postit-normal.jpg`);
@@ -11,8 +15,6 @@ export default function Posit({ position }: { position: number[] }) {
 
   postitTexture.flipY = false;
   postitTexture.colorSpace = THREE.SRGBColorSpace;
-
-  const [visible, setVisible] = useState(false);
 
   const postitMaterial = new THREE.MeshStandardMaterial({
     map: postitTexture,
@@ -30,7 +32,18 @@ export default function Posit({ position }: { position: number[] }) {
 
   return (
     <>
-      <Clone position={[0, position[0], 30 + position[1]]} object={scene} />
+      <Clone position={[-0.2, position[0], 30 + position[1]]} object={scene} />
+      <Text
+        position={[27, position[0] + 14, position[1] + 9.4]}
+        rotation-y={-Math.PI * 0.5}
+        fontSize={0.2}
+        color="black"
+        anchorX="center"
+        anchorY="middle"
+        maxWidth={0.8}
+      >
+        {text}
+      </Text>
     </>
   );
 }
