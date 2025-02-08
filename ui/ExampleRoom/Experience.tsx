@@ -5,17 +5,21 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useRef } from "react";
 import GuestBook from "./GuestBook";
+import { useCameraViewState } from "../CameraView/cameraView.provider";
 
 export default function Experience() {
   const groupRef = useRef<THREE.Group>(null);
+  const { state, dispatch } = useCameraViewState();
 
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = THREE.MathUtils.lerp(
-        groupRef.current.rotation.y,
-        (state.mouse.x * Math.PI) / 30,
-        0.1
-      );
+  useFrame((s) => {
+    if (!state.fix) {
+      if (groupRef.current) {
+        groupRef.current.rotation.y = THREE.MathUtils.lerp(
+          groupRef.current.rotation.y,
+          (s.mouse.x * Math.PI) / 30,
+          0.1
+        );
+      }
     }
   });
 

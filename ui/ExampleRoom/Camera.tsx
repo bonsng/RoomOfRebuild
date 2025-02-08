@@ -1,5 +1,5 @@
 import { useThree } from "@react-three/fiber";
-import { Angle } from "./angles";
+import { Angle } from "../../util/data/angles";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { OrbitControls } from "@react-three/drei";
@@ -10,13 +10,6 @@ const CameraControls = ({ position, target }: Angle) => {
     gl: { domElement },
   } = useThree();
   const ref = useRef<any>(null);
-
-  //   useEffect(() => {
-  //     if (ref.current) {
-  //       console.log(ref.current);
-  //       ref.current.target = target;
-  //     }
-  //   }, []);
 
   function cameraAnimate(): void {
     if (ref.current) {
@@ -50,10 +43,11 @@ const CameraControls = ({ position, target }: Angle) => {
 
   return (
     <OrbitControls
-      enableZoom={false}
-      enableRotate={false}
+      // enableZoom={false}
+      // enableRotate={false}
       ref={ref}
       args={[camera, domElement]}
+      target={[0, 11, -10]}
     />
   );
 };

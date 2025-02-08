@@ -12,11 +12,11 @@ import { Button } from "@heroui/button";
 import { PostIts } from "@/models/PostIt";
 export type NoteModalProps = {
   title: string;
-  setNotes: Dispatch<SetStateAction<PostIts[]>>;
+  updateNotes: (arg: PostIts) => void;
 };
 
 const NoteModal = forwardRef<ModalRef, NoteModalProps>(
-  ({ title, setNotes }, ref) => {
+  ({ title, updateNotes }, ref) => {
     const [isOpen, setIsOpen] = useState(false);
     const [value, setValue] = useState<string>("");
     const { closeModal } = useModal("NotePad");
@@ -30,8 +30,10 @@ const NoteModal = forwardRef<ModalRef, NoteModalProps>(
         alert("내용을 입력해주세요.");
       } else {
         try {
+          const randomX = Math.random() * 10 - 5;
+          const randomY = Math.random() * 16 - 8;
           const newNote = {
-            position: [(Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10],
+            position: [randomX, randomY],
             text: value,
           };
 
@@ -46,7 +48,7 @@ const NoteModal = forwardRef<ModalRef, NoteModalProps>(
           const result = await res.json();
           if (result.success) {
             if (result.data) {
-              setNotes((prev) => [...prev, result.data]);
+              updateNotes(result.data);
               closeModal();
             }
           }
