@@ -7,13 +7,11 @@ import ChalkBoard from "./Models/ChalkBoard";
 import { useCameraViewState } from "../CameraView/cameraView.provider";
 import { Html } from "@react-three/drei";
 import GuestPage from "./GuestPage";
-import { useLoading } from "../Loading/loading.provider";
 
 export default function GuestBook() {
   const [notes, setNotes] = useState<PostIts[]>([]);
   const { state, dispatch } = useCameraViewState();
   const { openModal } = useModal("NotePad");
-
   const updateNotes = (data: PostIts) => {
     setNotes((prev) => [...prev, data]);
   };
@@ -24,20 +22,20 @@ export default function GuestBook() {
       dispatch({ type: "TOGGLE_FIX" });
     }
   };
+  const fetchData = async () => {
+    try {
+      const res = await fetch("/api/postit");
+      if (!res.ok) throw new Error("Failed to fetch");
+      const data = await res.json();
+      if (JSON.stringify(notes) !== JSON.stringify(data.notes)) {
+        setNotes(data.notes);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("/api/postit");
-        if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
-        if (JSON.stringify(notes) !== JSON.stringify(data.notes)) {
-          setNotes(data.notes);
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    };
     fetchData();
   }, [notes]);
 
@@ -54,7 +52,7 @@ export default function GuestBook() {
           position={[27.5, 14, 10.2]}
           rotation-y={-Math.PI * 0.5}
         >
-          <GuestPage />
+          <GuestPage notes={notes} />
         </Html>
       )}
 

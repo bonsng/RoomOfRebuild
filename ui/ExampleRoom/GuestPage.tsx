@@ -1,26 +1,6 @@
 import { PostIts } from "@/models/PostIt";
-import { useEffect, useState } from "react";
 
-export default function GuestPage() {
-  const [notes, setNotes] = useState<PostIts[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("/api/postit");
-        if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
-        if (JSON.stringify(notes) !== JSON.stringify(data.notes)) {
-          setNotes(data.notes);
-        }
-        console.log(data.notes);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchData();
-  }, []);
-
+export default function GuestPage({ notes }: { notes: PostIts[] }) {
   return (
     <>
       <div className="bg-transparent text-gray-50 w-[80vw] h-[80vh] flex items-center flex-col overflow-hidden">
@@ -28,20 +8,19 @@ export default function GuestPage() {
           Example Room Guest Book
         </div>
         <div className="w-4/5 flex-1 overflow-y-auto pt-3 pr-4">
-          <>
-            {notes.map((el, idx) => {
-              return <GuestBookCard el={el} idx={idx} />;
+          {notes &&
+            notes.map((el, idx) => {
+              return <GuestBookCard el={el} key={idx} />;
             })}
-          </>
         </div>
       </div>
     </>
   );
 }
 
-const GuestBookCard = ({ el, idx }: { el: PostIts; idx: number }) => {
+const GuestBookCard = ({ el }: { el: PostIts }) => {
   return (
-    <div key={idx} className="mt-10 p-5 border border-gray-50 rounded-md">
+    <div className="mt-10 p-5 border border-gray-50 rounded-md">
       <div className="flex flex-col">
         <p className="text-left text-lg font-bold">{el.text}</p>
         <p className="mt-2 mb-2">내용....</p>

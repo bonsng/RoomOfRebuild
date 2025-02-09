@@ -3,9 +3,11 @@
 import Model from "./Models/Model";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import GuestBook from "./GuestBook";
 import { useCameraViewState } from "../CameraView/cameraView.provider";
+import PhotoAlbum from "./PhotoAlbum";
+import { Environment } from "@react-three/drei";
 
 export default function Experience() {
   const groupRef = useRef<THREE.Group>(null);
@@ -27,10 +29,14 @@ export default function Experience() {
     <>
       <color args={["#000"]} attach="background" />
       <group ref={groupRef}>
-        <Model />
+        <Suspense fallback={null}>
+          <Model />
+        </Suspense>
         <GuestBook />
+        <PhotoAlbum />
       </group>
       <ambientLight intensity={2} />
+      {/* <Environment preset="night" background backgroundIntensity={10} /> */}
     </>
   );
 }
