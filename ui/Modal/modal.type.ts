@@ -1,4 +1,5 @@
 import { NoteModalProps } from "./NoteModal";
+import { PhotoAlbumModalProps } from "./PhotoAlbumModal";
 
 export interface ModalRef {
   open: () => void;
@@ -6,10 +7,11 @@ export interface ModalRef {
   isOpen: boolean;
 }
 
-export type ModalTypes = "NotePad";
+export type ModalTypes = "NotePad" | "PhotoAlbum";
 
 export type ModalPropsMap = {
   NotePad: NoteModalProps;
+  PhotoAlbum: PhotoAlbumModalProps;
 };
 
 export type ModalProps<T extends ModalTypes> = T extends keyof ModalPropsMap

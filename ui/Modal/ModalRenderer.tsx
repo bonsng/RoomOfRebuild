@@ -2,9 +2,11 @@ import { FC, useEffect, useRef } from "react";
 import { useModalContext } from "./modal.provider";
 import { ModalRef, ModalTypes } from "./modal.type";
 import NoteModal from "./NoteModal";
+import PhotoAlbumModal from "./PhotoAlbumModal";
 
 const MODAL_COMPONENT: Record<ModalTypes, FC<any>> = {
   NotePad: NoteModal,
+  PhotoAlbum: PhotoAlbumModal,
 };
 
 export const ModalRenderer: FC = () => {

@@ -1,21 +1,40 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, useContext, useReducer, ReactNode } from "react";
 
-type LoadingType = {
+type LoadingState = {
   isLoading: boolean;
-  startLoading: () => void;
-  endLoading: () => void;
 };
 
-const LoadingContext = createContext<LoadingType | undefined>(undefined);
+type LoadingAction = { type: "START_LOADING" } | { type: "STOP_LOADING" };
+
+const loadingReducer = (
+  loadingState: LoadingState,
+  action: LoadingAction
+): LoadingState => {
+  switch (action.type) {
+    case "START_LOADING":
+      return { isLoading: true };
+    case "STOP_LOADING":
+      return { isLoading: false };
+    default:
+      return loadingState;
+  }
+};
+
+const LoadingContext = createContext<
+  | {
+      loadingState: LoadingState;
+      loadingDispatch: React.Dispatch<LoadingAction>;
+    }
+  | undefined
+>(undefined);
 
 export const LoadingProvider = ({ children }: { children: ReactNode }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const startLoading = () => setIsLoading(true);
-  const endLoading = () => setIsLoading(false);
+  const [loadingState, loadingDispatch] = useReducer(loadingReducer, {
+    isLoading: false,
+  });
 
   return (
-    <LoadingContext.Provider value={{ isLoading, startLoading, endLoading }}>
+    <LoadingContext.Provider value={{ loadingState, loadingDispatch }}>
       {children}
     </LoadingContext.Provider>
   );
@@ -23,6 +42,7 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
 
 export const useLoading = () => {
   const context = useContext(LoadingContext);
-  if (!context) throw new Error("[Error]: no such context!!");
+  if (!context)
+    throw new Error("useLoading must be used within a LoadingProvider");
   return context;
 };
