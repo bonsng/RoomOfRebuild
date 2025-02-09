@@ -7,6 +7,7 @@ import { CameraViewProvider } from "@/ui/CameraView/cameraView.provider";
 import ExampleRoom3D from "@/ui/ExampleRoom/ExampleRoom3D";
 import ExampleRoomHTML from "@/ui/ExampleRoom/ExampleRoomHTML";
 import { LoadingProvider } from "@/ui/Loading/loading.provider";
+import ExampleRoom from "@/ui/ExampleRoom/ExampleRoom";
 
 export default function Page() {
   return (
@@ -16,8 +17,7 @@ export default function Page() {
           <ModalProvider>
             <LoadingProvider>
               <div className="h-screen dark">
-                <ExampleRoom3D />
-                <ExampleRoomHTML />
+                <ExampleRoom />
               </div>
             </LoadingProvider>
           </ModalProvider>
