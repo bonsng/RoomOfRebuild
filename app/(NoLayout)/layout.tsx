@@ -15,7 +15,7 @@ export default function ExampleRoomLayout({
   return (
     <>
       <RoomNav />
-      <body className="overflow-y-auto ">{children}</body>
+      {children}
     </>
   );
 }
