@@ -12,9 +12,6 @@ const nextConfig: NextConfig = {
   },
   transpilePackages: ["three"],
   reactStrictMode: false,
-  output: 'export',
-  basePath: '/RoomOfRebuild',
-  assetPrefix: '/RoomOfRebuild',
 };
 
 export default nextConfig;
