@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
-import dbConnect from "@/lib/dbConnect";
-import PostIt from "@/models/PostIt";
+import dbConnect from "../../../lib/dbConnect";
+import PostIt from "../../../models/PostIt";
 
 export async function GET(req: NextRequest) {
   await dbConnect();
