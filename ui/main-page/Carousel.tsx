@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import { CarouselItem, carouselItems } from "./carouselItem";
 import Image from "next/image";
-import image1 from "/roomImages/roomImage6.png";
-import image2 from "/roomImages/roomImage5.png";
-import image3 from "/roomImages/roomImage4.png";
+import image1 from "../../public/roomImages/roomImage6.png";
+import image2 from "../../public/roomImages/roomImage5.png";
+import image3 from "../../public/roomImages/roomImage4.png";
 import { useInterval } from "../../util/custom-hook/use-interval";
 import useScrollMove from "../../util/custom-hook/use-scroll-move";
 import Link from "next/link";
