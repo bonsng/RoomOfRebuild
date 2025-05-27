@@ -1,6 +1,6 @@
 "use client";
 
-import Model from "@/ui/example-room/models/Model";
+import Model from "./models/Model";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { Suspense, useEffect, useRef, useState } from "react";

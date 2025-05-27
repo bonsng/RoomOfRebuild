@@ -1,8 +1,8 @@
 "use client";
-import image1 from "@/public/roomImages/roomImage1.png";
-import image2 from "@/public/roomImages/roomImage2.png";
-import image3 from "@/public/roomImages/roomImage3.png";
-import useScrollAnimate from "@/util/custom-hook/use-scroll-animate";
+import image1 from "/roomImages/roomImage1.png";
+import image2 from "/roomImages/roomImage2.png";
+import image3 from "/roomImages/roomImage3.png";
+import useScrollAnimate from "../../util/custom-hook/use-scroll-animate";
 import clsx from "clsx";
 import Image from "next/image";
 

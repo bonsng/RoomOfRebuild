@@ -8,8 +8,8 @@ export default function RoomButtons({
   visible,
 }: {
   onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-  isLeft: Boolean;
-  visible: Boolean;
+  isLeft: boolean;
+  visible: boolean;
 }) {
   return (
     <>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./globalicon.css";
-import Providers from "@/ui/providers";
+import Providers from "../ui/providers";
 
 export const metadata: Metadata = {
   title: "RoomOf",

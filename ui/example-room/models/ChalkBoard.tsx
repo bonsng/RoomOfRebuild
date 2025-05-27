@@ -1,4 +1,4 @@
-import { useCameraViewState } from "@/ui/camera-view/cameraView.provider";
+import { useCameraViewState } from "../../camera-view/cameraView.provider";
 import { Clone, useGLTF, useTexture } from "@react-three/drei";
 import { useState } from "react";
 import * as THREE from "three";

@@ -1,4 +1,4 @@
-import { images } from "@/util/data/images";
+import { images } from "../../util/data/images";
 import { Image } from "@react-three/drei";
 import { useRef, useState } from "react";
 import { easing } from "maath";
