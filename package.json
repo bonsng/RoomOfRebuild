@@ -10,10 +10,6 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.749.0",
-    "@heroui/button": "^2.2.10",
-    "@heroui/input": "^2.4.10",
-    "@heroui/system": "^2.4.7",
-    "@heroui/theme": "^2.4.6",
     "@react-three/drei": "^9.121.4",
     "@react-three/fiber": "^9.0.0-alpha.8",
     "@svgr/webpack": "^8.1.0",

@@ -1,14 +1,10 @@
 import {
-  Dispatch,
   forwardRef,
-  SetStateAction,
   useImperativeHandle,
   useState,
 } from "react";
 import { ModalRef } from "./modal.type";
 import { useModal } from "./modal.hook";
-import { Textarea } from "@heroui/input";
-import { Button } from "@heroui/button";
 import { PostIts } from "@/models/PostIt";
 export type NoteModalProps = {
   title: string;
@@ -74,29 +70,44 @@ const NoteModal = forwardRef<ModalRef, NoteModalProps>(
         {isOpen && (
           <>
             <div className="bg-[#7d7d7df7] h-[50%] w-[50%] p-10 relative rounded-md flex items-center flex-col">
-              <Textarea
-                classNames={{
-                  base: "mb-2",
-                  input: "resize-y min-h-[280px]",
-                  inputWrapper: "p-5",
-                }}
-                disableAnimation
-                disableAutosize
-                label="Example Room 님의 방명록"
-                labelPlacement="outside"
-                placeholder={title}
-                value={value}
-                variant="flat"
-                onValueChange={setValue}
-              />
-              <div className="">
-                <Button
-                  color="default"
-                  variant="bordered"
-                  onPress={handleSubmit}
+
+                {/* Replaced Textarea with native textarea */}
+                <label
+                  style={{ display: "block", marginBottom: "0.5rem" }}
+                >
+                  Example Room 님의 방명록
+                </label>
+                <textarea
+                  style={{
+                    minHeight: "280px",
+                    resize: "vertical",
+                    width: "100%",
+                    padding: "1.25rem",
+                    marginBottom: "0.5rem",
+                    borderRadius: "0.375rem",
+                    border: "1px solid #ccc",
+                    fontSize: "1rem",
+                  }}
+                  placeholder={title}
+                  value={value}
+                  onChange={e => setValue(e.target.value)}
+                />
+              <div>
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  style={{
+                    border: "1px solid #7d7d7d",
+                    borderRadius: "0.375rem",
+                    padding: "0.5rem 1.5rem",
+                    background: "transparent",
+                    color: "#222",
+                    cursor: "pointer",
+                    fontSize: "1rem",
+                  }}
                 >
                   등록
-                </Button>
+                </button>
               </div>
               <span
                 className="material-symbols-outlined absolute right-3 top-3 cursor-pointer text-2xl"
@@ -111,5 +122,7 @@ const NoteModal = forwardRef<ModalRef, NoteModalProps>(
     );
   }
 );
+
+NoteModal.displayName = "NoteModal";
 
 export default NoteModal;
