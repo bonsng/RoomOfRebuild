@@ -1,6 +1,6 @@
 "use client";
 
-import ExampleRoomContainer from "@/ui/example-room/example-room-container";
+import ExampleRoomContainer from "../../../ui/example-room/example-room-container";
 
 export default function Page() {
   return (
