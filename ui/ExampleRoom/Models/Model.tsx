@@ -7,6 +7,7 @@ export default function Model() {
   const notePad: THREE.Mesh = scene.children.find(
     (child: THREE.Object3D) => child.name === "Legal_Note_Pad_White"
   );
+
   notePad.visible = false;
   const bakedTexture = useTexture(`/models/final2.jpg`);
   bakedTexture.flipY = false;

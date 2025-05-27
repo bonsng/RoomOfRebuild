@@ -15,7 +15,6 @@ export default function ExampleRoomHTML() {
       type: "SET_VIEW",
       payload: state.view - 1 == -1 ? 2 : state.view - 1,
     });
-    console.log(state.view);
   };
   const clickRight = () =>
     dispatch({ type: "SET_VIEW", payload: (state.view + 1) % 3 });
@@ -38,7 +37,7 @@ export default function ExampleRoomHTML() {
         }
       }
     }
-  }, [ratio]);
+  }, [leftVisible, ratio, rightVisible]);
 
   return (
     <>

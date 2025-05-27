@@ -1,7 +1,10 @@
-import { Clone, useGLTF, useTexture } from "@react-three/drei";
+import { Clone, Html, useGLTF, useTexture } from "@react-three/drei";
+import { useState } from "react";
 import * as THREE from "three";
+import Marker from "../Components/Marker";
 
 export default function NotePad({ onClick }: { onClick: () => void }) {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
   const { scene }: any = useGLTF(`/models/notepad.glb`);
   const notePadTexture = useTexture(`/models/final2.jpg`);
   notePadTexture.flipY = false;
@@ -21,13 +24,20 @@ export default function NotePad({ onClick }: { onClick: () => void }) {
         onClick={onClick}
         onPointerEnter={() => {
           document.body.style.cursor = "pointer";
+          setIsHovered(true);
         }}
         onPointerLeave={() => {
           document.body.style.cursor = "default";
+          setIsHovered(false);
         }}
         position={[0, 0, 30]}
         object={scene}
       />
+      {isHovered && (
+        <Marker rotation={[0, -Math.PI / 2, 0]} position={[25, 7.3, 13.5]}>
+          방명록을 작성하려면 노트를 클릭하세요
+        </Marker>
+      )}
     </>
   );
 }

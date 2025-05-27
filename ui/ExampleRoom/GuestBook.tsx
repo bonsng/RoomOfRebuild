@@ -42,9 +42,24 @@ export default function GuestBook() {
   return (
     <>
       {state.view !== 4 ? (
-        notes.map((el, idx) => {
-          return <Posit position={el.position} text={el.text} key={idx} />;
-        })
+        <>
+          <Posit position={[2.2, -5, 0]} text={"RoomOf에 오신걸 환영합니다."} />
+          <Posit
+            position={[2, -2, 0]}
+            text={"RoomOf는 가상 추모 공간 서비스입니다."}
+          />
+          <Posit
+            position={[2.3, 1, 0]}
+            text={"현재 보시는 것은 방명록 기능입니다."}
+          />
+          <Posit
+            position={[1.8, 4, 0]}
+            text={"공간을 찾은 사람들이 하고 싶은 말들을 남길 수 있습니다."}
+          />
+          <Posit position={[0, -5, 0]} text={"하고 싶은 말을 남겨주세요!"} />
+          <Posit position={[0, -2, 0]} text={"하고 싶은 말을 남겨주세요!"} />
+          <Posit position={[0, 2, 0]} text={"하고 싶은 말을 남겨주세요!"} />
+        </>
       ) : (
         <Html
           transform
@@ -66,3 +81,7 @@ export default function GuestBook() {
     </>
   );
 }
+
+// notes.map((el, idx) => {
+//   return <Posit position={el.position} text={el.text} key={idx} />;
+// })

@@ -10,7 +10,7 @@ import { ModalRenderer } from "./ModalRenderer";
 type ModalState = {
   isOpen: boolean;
   modalType: string | null;
-  props: {};
+  props: object;
 };
 
 const initialState: ModalState = {
