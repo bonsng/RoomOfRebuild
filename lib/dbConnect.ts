@@ -1,13 +1,9 @@
-import mongoose from "mongoose";
-declare global {
-  var mongoose: any;
-}
+import mongoose, { Mongoose } from "mongoose";
 
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
+const cached: { conn: Mongoose | null; promise: Promise<Mongoose> | null } = {
+  conn: null,
+  promise: null,
+};
 
 async function dbConnect() {
   const MONGODB_URI = process.env.MONGODB_URI!;
