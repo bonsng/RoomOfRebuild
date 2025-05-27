@@ -34,15 +34,15 @@ export default function Posit({
     <>
       <Clone position={[-0.2, position[0], 30 + position[1]]} object={scene} />
       <Text
-        position={[27, position[0] + 14, position[1] + 9.4]}
+        position={[27, position[0] + 13.8, position[1] + 9.4]}
         rotation-y={-Math.PI * 0.5}
         fontSize={0.2}
         color="black"
         anchorX="center"
         anchorY="middle"
-        maxWidth={0.8}
+        maxWidth={0.9}
       >
-        {text}
+        {text.length > 20 ? `${text.slice(0, 20)}...` : text}
       </Text>
     </>
   );

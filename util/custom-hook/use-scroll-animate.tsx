@@ -34,7 +34,6 @@ const useScrollAnimate = (isLeft: boolean, translateValue: number) => {
         }${translateValue}vw)`;
         image.style.opacity = "1";
         text.style.opacity = "1";
-        console.log(image.className);
         observer?.unobserve(current);
       }
     }

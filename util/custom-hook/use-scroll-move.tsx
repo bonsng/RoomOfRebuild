@@ -32,11 +32,11 @@ const useScrollMove = () => {
       const visiblePct = clampNumber(Math.floor(ratio * 10000) / 3300);
 
       text1.style.transform = `translate3D(${
-        -(1 - visiblePct) * 11.5
+        -(1 - visiblePct) * 8.0
       }vw, 0, 0)`;
-      text2.style.transform = `translate3D(${-(1 - visiblePct) * 10}vw, 0, 0)`;
+      text2.style.transform = `translate3D(${-(1 - visiblePct) * 7.5}vw, 0, 0)`;
       line.style.width = `${(1 - visiblePct) * 30}%`;
-      line.style.transform = `translate3D(${-(1 - visiblePct) * 8.5}vw, 0, 0)`;
+      line.style.transform = `translate3D(${-(1 - visiblePct) * 7.5}vw, 0, 0)`;
     });
   }, []);
 

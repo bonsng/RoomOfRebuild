@@ -3,7 +3,6 @@ import { Image } from "@react-three/drei";
 import { useRef, useState } from "react";
 import { easing } from "maath";
 import { useFrame } from "@react-three/fiber";
-import { useModal } from "../Modal/modal.hook";
 
 const GOLDENRATIO = 1.61803398875;
 
@@ -16,13 +15,13 @@ export default function PhotoAlbum() {
 }
 
 const Frames = () => {
-  const { openModal } = useModal("PhotoAlbum");
+  // const { openModal } = useModal("PhotoAlbum");
   return (
     <group
-      onClick={(e) => {
-        e.stopPropagation();
-        openModal({ photos: images });
-      }}
+      // onClick={(e) => {
+      //   e.stopPropagation();
+      //   window.open("/example-room/photo-gallery", "_blank");
+      // }}
     >
       {images.map((props, idx) => (
         <Frame key={idx} {...props} />
@@ -84,6 +83,7 @@ const Frame = ({ url, ...props }: { url: string }) => {
           <meshBasicMaterial toneMapped={true} />
         </mesh>
         <Image
+            alt={`image${url}`}
           raycast={() => null}
           ref={image}
           position={[0, 0, 0.8]}

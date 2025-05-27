@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-const { heroui } = require("@heroui/theme");
+import {heroui} from "@heroui/theme";
 
 export default {
   content: [
@@ -23,6 +23,9 @@ export default {
         home: "0 10px 25px rgba(0, 0, 0, 0.1)",
       },
     },
+    fontFamily: {
+      news: ["Newsreader", "serif"],
+    }
   },
   darkMode: "class",
   plugins: [heroui()],
