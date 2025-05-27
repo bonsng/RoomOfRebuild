@@ -1,13 +1,12 @@
 "use client";
 
-import React from "react";
-import ExampleRoom from "@/ui/example-room/ExampleRoom";
+import ExampleRoomContainer from "@/ui/example-room/example-room-container";
 
 export default function Page() {
   return (
     <>
       <div className="h-screen dark">
-        <ExampleRoom />
+        <ExampleRoomContainer />
       </div>
     </>
   );
