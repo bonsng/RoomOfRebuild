@@ -1,5 +1,5 @@
 import { useThree } from "@react-three/fiber";
-import { Angle } from "../../util/data/angles";
+import { Angle } from "@/util/data/angles";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { OrbitControls } from "@react-three/drei";
