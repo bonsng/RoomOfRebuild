@@ -29,7 +29,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-image-grid-gallery": "^3.0.0",
-    "three": "^0.173.0"
+    "three": "^0.173.0",
+    "three-mesh-bvh": "^0.8.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
