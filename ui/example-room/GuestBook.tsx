@@ -1,10 +1,10 @@
 import { PostIts } from "@/models/PostIt";
 import { useEffect, useState } from "react";
-import Posit from "./Models/Postit";
-import { useModal } from "../Modal/modal.hook";
-import NotePad from "./Models/NotePad";
-import ChalkBoard from "./Models/ChalkBoard";
-import { useCameraViewState } from "../CameraView/cameraView.provider";
+import Posit from "@/ui/example-room/models/Postit";
+import { useModal } from "@/ui/modal/modal.hook";
+import NotePad from "@/ui/example-room/models/NotePad";
+import ChalkBoard from "@/ui/example-room/models/ChalkBoard";
+import { useCameraViewState } from "@/ui/camera-view/cameraView.provider";
 import { Html } from "@react-three/drei";
 import GuestPage from "./GuestPage";
 

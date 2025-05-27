@@ -1,8 +1,8 @@
-import { useCameraViewState } from "@/ui/CameraView/cameraView.provider";
+import { useCameraViewState } from "@/ui/camera-view/cameraView.provider";
 import { Clone, useGLTF, useTexture } from "@react-three/drei";
 import { useState } from "react";
 import * as THREE from "three";
-import Marker from "../Components/Marker";
+import Marker from "@/ui/example-room/components/Marker";
 
 export default function ChalkBoard({
   handleClick,

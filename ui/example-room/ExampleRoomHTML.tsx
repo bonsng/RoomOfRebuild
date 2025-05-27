@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useCameraViewState } from "../CameraView/cameraView.provider";
+import { useCameraViewState } from "@/ui/camera-view/cameraView.provider";
 import RoomButtons from "./RoomButtons";
 import useMousePosition from "@/util/custom-hook/use-mouse-position";
 

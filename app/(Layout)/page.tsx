@@ -1,5 +1,5 @@
-import Carousel from "@/ui/MainPage/Carousel";
-import Description from "@/ui/MainPage/Description";
+import Carousel from "@/ui/main-page/Carousel";
+import Description from "@/ui/main-page/Description";
 
 export default function Home() {
   return (

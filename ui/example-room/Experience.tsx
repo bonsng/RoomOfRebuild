@@ -1,11 +1,11 @@
 "use client";
 
-import Model from "./Models/Model";
+import Model from "@/ui/example-room/models/Model";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { Suspense, useEffect, useRef, useState } from "react";
 import GuestBook from "./GuestBook";
-import { useCameraViewState } from "../CameraView/cameraView.provider";
+import { useCameraViewState } from "@/ui/camera-view/cameraView.provider";
 import PhotoAlbum from "./PhotoAlbum";
 // import { Environment, Html, useHelper } from "@react-three/drei";
 // import { useControls } from "leva";

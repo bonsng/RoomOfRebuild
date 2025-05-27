@@ -1,7 +1,7 @@
 import { Clone, Html, useGLTF, useTexture } from "@react-three/drei";
 import { useState } from "react";
 import * as THREE from "three";
-import Marker from "../Components/Marker";
+import Marker from "@/ui/example-room/components/Marker";
 
 export default function NotePad({ onClick }: { onClick: () => void }) {
   const [isHovered, setIsHovered] = useState<boolean>(false);

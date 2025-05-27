@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const useScrollAnimate = (isLeft: boolean, translateValue: number) => {
   const dom = useRef<HTMLDivElement | null>(null);
@@ -19,7 +19,7 @@ const useScrollAnimate = (isLeft: boolean, translateValue: number) => {
     }
 
     return () => {
-      if (observer) observer.disconnect;
+      if (observer) observer.disconnect();
     };
   }, []);
 

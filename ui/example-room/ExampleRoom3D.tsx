@@ -2,7 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
-import { useCameraViewState } from "../CameraView/cameraView.provider";
+import { useCameraViewState } from "@/ui/camera-view/cameraView.provider";
 import { angles } from "@/util/data/angles";
 import { useEffect } from "react";
 import CameraControls from "./Camera";
