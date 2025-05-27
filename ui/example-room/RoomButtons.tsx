@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import LeftArrow from "@/public/svgs/left-arrow.svg";
-import RightArrow from "@/public/svgs/right-arrow.svg";
+import LeftArrow from "../../public/svgs/left-arrow.svg";
+import RightArrow from "../../public/svgs/right-arrow.svg";
 
 export default function RoomButtons({
   onClick,
