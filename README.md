@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RoomOf
 
-## Getting Started
+### 가상 추모 공간 서비스
 
-First, run the development server:
+> 한 사람을 추모하기 위한 가상 공간을 제공하는 서비스 RoomOf 입니다.
+>
+> 언제 어디서든 보고싶은 사람을 만날 수 있는 공간을 제공하고자 하는 마음에 만들게 된 서비스입니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Index
+- [Deployment](#deployment)
+- [서비스 소개](#서비스-소개)
+    - [가상공간 제공](#가상공간-제공)
+    - [TTS](#tts-)
+    - [방명록](#방명록)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 서비스 소개
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+### 가상공간 제공
 
-To learn more about Next.js, take a look at the following resources:
+Three.js 로 구현된 가상 공간에 해당 인물의 사진/동영상, 인물의 목소리 (TTS), 방명록 등을 제공합니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### TTS
+### (현재 서버의 문제로 작동하지 않습니다.)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+인물의 목소리를 학습하여, 듣고 싶은 말을 입력하면 해당 인물의 목소리로 글을 읽어줍니다.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 방명록
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+해당 인물에게 남기고 싶은 말을 남길 수 있는 방명록입니다. 다른 사람들도 들어와 어떤 사람들이 해당 인물을 그리워하는지 볼 수 있습니다.
+
+
+
+
+
+
+
+
