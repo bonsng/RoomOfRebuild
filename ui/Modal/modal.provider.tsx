@@ -6,10 +6,11 @@ import {
   useReducer,
 } from "react";
 import { ModalRenderer } from "./ModalRenderer";
+import { ModalPropsMap, ModalTypes } from "./modal.type";
 
 type ModalState = {
   isOpen: boolean;
-  modalType: string | null;
+  modalType: ModalTypes | null;
   props: object;
 };
 
@@ -20,7 +21,7 @@ const initialState: ModalState = {
 };
 
 type ModalAction =
-  | { type: "OPEN_MODAL"; modalType: string; props: any }
+  | { type: "OPEN_MODAL"; modalType: ModalTypes; props: ModalPropsMap[ModalTypes] }
   | { type: "CLOSE_MODAL" };
 
 export const ModalContext = createContext<{
