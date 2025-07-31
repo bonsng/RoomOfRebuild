@@ -1,4 +1,4 @@
-import { PostIts } from "../../models/PostIt";
+import { PostIts } from "@/models/PostIt";
 
 export default function GuestPage({ notes }: { notes: PostIts[] }) {
   return (

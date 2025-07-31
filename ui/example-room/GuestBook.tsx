@@ -1,4 +1,4 @@
-import { PostIts } from "../../models/PostIt";
+import { PostIts } from "@/models/PostIt";
 import { useEffect, useState } from "react";
 import Posit from "./models/Postit";
 import { useModal } from "../modal/modal.hook";

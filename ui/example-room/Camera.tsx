@@ -1,17 +1,18 @@
 import { useThree } from "@react-three/fiber";
-import { Angle } from "../../util/data/angles";
-import { useEffect, useRef } from "react";
+import { Angle } from "@/util/data/angles";
+import { useEffect, useRef, useCallback } from "react";
 import gsap from "gsap";
 import { OrbitControls } from "@react-three/drei";
+import { OrbitControls as OrbitControlsImpl} from 'three-stdlib'
 
 const CameraControls = ({ position, target }: Angle) => {
   const {
     camera,
     gl: { domElement },
   } = useThree();
-  const ref = useRef<any>(null);
+  const ref = useRef<OrbitControlsImpl | null>(null);
 
-  function cameraAnimate(): void {
+  const cameraAnimate = useCallback(() => {
     if (ref.current) {
       gsap.timeline().to(camera.position, {
         duration: 1.5,
@@ -35,16 +36,16 @@ const CameraControls = ({ position, target }: Angle) => {
         "<"
       );
     }
-  }
+  }, [camera.position, position, target]);
 
   useEffect(() => {
     cameraAnimate();
-  }, [target, position]);
+  }, [cameraAnimate]);
 
   return (
     <OrbitControls
-      // enableZoom={false}
-      // enableRotate={false}
+      enableZoom={false}
+      enableRotate={false}
       ref={ref}
       args={[camera, domElement]}
       target={[0, 11, -10]}
