@@ -1,0 +1,47 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { useState } from "react";
+
+export default function RoomNav() {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <Link href="/" passHref>
+      <motion.a
+        onHoverStart={() => setHovered(true)}
+        onHoverEnd={() => setHovered(false)}
+        className="fixed left-3 top-3 z-[100] flex items-center gap-2 bg-white/80 px-2 py-1 rounded-3xl overflow-hidden"
+        initial={{ width: "2.5rem" }}
+        animate={{ width: hovered ? "8rem" : "2.5rem" }}
+        transition={{ duration: 0.3 }}
+      >
+        <motion.div initial={{ opacity: 1 }} transition={{ duration: 0.2 }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
+        </motion.div>
+        <motion.span
+          className="text-sm font-medium flex"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: hovered ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          RoomOf
+        </motion.span>
+      </motion.a>
+    </Link>
+  );
+}

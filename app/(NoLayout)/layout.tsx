@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import React from "react";
+import RoomNav from "@/ui/room-nav";
 // import RoomNav from "./room-nav";
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export default function ExampleRoomLayout({
   return (
     <>
       {/*<RoomNav />*/}
+      <RoomNav />
       {children}
     </>
   );
