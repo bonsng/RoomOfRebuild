@@ -13,18 +13,12 @@ export default function GlobalNav() {
     <header className="fixed top-0 z-10 w-full border-b border-gray-800 bg-rice-cake">
       <div className="flex justify-between items-center text-xl px-3 py-2 ">
         <div className="hidden lg:block text-sm">
-          <Link
-            href="/about"
-            className="mr-2 text-gray-600 hover:text-black transition-colors"
-          >
+          <span className="mr-2 text-gray-400 cursor-not-allowed select-none">
             About
-          </Link>
-          <Link
-            href="/contact"
-            className="mr-2 text-gray-600 hover:text-black transition-colors"
-          >
+          </span>
+          <span className="mr-2 text-gray-400 cursor-not-allowed select-none">
             Contact
-          </Link>
+          </span>
         </div>
         <div>
           <Link href="/" onClick={close}>
@@ -32,18 +26,12 @@ export default function GlobalNav() {
           </Link>
         </div>
         <div className="hidden lg:block text-sm">
-          <Link
-            href="/login"
-            className="ml-2 text-gray-600 hover:text-black transition-colors"
-          >
+          <span className="ml-2 text-gray-400 cursor-not-allowed select-none">
             Login
-          </Link>
-          <Link
-            href="/register"
-            className="ml-2 text-gray-600 hover:text-black transition-colors"
-          >
+          </span>
+          <span className="ml-2 text-gray-400 cursor-not-allowed select-none">
             Register
-          </Link>
+          </span>
         </div>
         <div className="lg:hidden">
           <Hamburger toggled={isOpen} toggle={setIsOpen} size={15} />
@@ -74,14 +62,25 @@ function GlobalNavItem({
   return (
     <>
       <div className="relative group">
-        <Link
-          className="block mx-3 my-3 px-2 py-2  text-gray-500  hover:text-black transition-all duration-500"
-          onClick={close}
-          href={`/${item.slug}`}
-        >
-          {item.name}
-        </Link>
-        <span className="absolute bottom-0 bg-black h-[2px] w-0 left-4 group-hover:w-[90%] transition-all duration-500"></span>
+        {!item.disabled ? (
+          <span
+            title="not in service"
+            className="block mx-3 my-3 px-2 py-2 text-gray-400 cursor-not-allowed select-none"
+          >
+            {item.name}
+          </span>
+        ) : (
+          <>
+            <Link
+              className="block mx-3 my-3 px-2 py-2  text-gray-500  hover:text-black transition-all duration-500"
+              onClick={close}
+              href={`/${item.slug}`}
+            >
+              {item.name}
+            </Link>
+            <span className="absolute bottom-0 bg-black h-[2px] w-0 left-4 group-hover:w-[90%] transition-all duration-500"></span>
+          </>
+        )}
       </div>
     </>
   );
