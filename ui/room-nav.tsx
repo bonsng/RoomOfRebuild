@@ -9,7 +9,7 @@ export default function RoomNav() {
 
   return (
     <Link href="/" passHref>
-      <motion.a
+      <motion.div
         onHoverStart={() => setHovered(true)}
         onHoverEnd={() => setHovered(false)}
         className="fixed left-3 top-3 z-[100] flex items-center gap-2 bg-white/80 px-2 py-1 rounded-3xl overflow-hidden"
@@ -41,7 +41,7 @@ export default function RoomNav() {
         >
           RoomOf
         </motion.span>
-      </motion.a>
+      </motion.div>
     </Link>
   );
 }

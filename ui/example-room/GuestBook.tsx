@@ -27,6 +27,7 @@ export default function GuestBook() {
       const res = await fetch("/api/postit");
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
+      console.log("data", data);
       if (JSON.stringify(notes) !== JSON.stringify(data.notes)) {
         setNotes(data.notes);
       }
@@ -37,6 +38,7 @@ export default function GuestBook() {
 
   useEffect(() => {
     fetchData();
+    console.log(notes);
   }, [notes]);
 
   return (
