@@ -14,13 +14,13 @@ export default function Experience() {
   const groupRef = useRef<THREE.Group>(null);
   const { state } = useCameraViewState();
   const [isHovered] = useState(false);
-  useFrame((s) => {
+  useFrame(({ pointer }) => {
     if (isHovered) return;
     if (!state.fix) {
       if (groupRef.current) {
         groupRef.current.rotation.y = THREE.MathUtils.lerp(
           groupRef.current.rotation.y,
-          (s.mouse.x * Math.PI) / 30,
+          (pointer.x * Math.PI) / 30,
           0.1,
         );
       }
