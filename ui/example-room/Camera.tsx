@@ -3,7 +3,7 @@ import { Angle } from "@/util/data/angles";
 import { useEffect, useRef, useCallback } from "react";
 import gsap from "gsap";
 import { OrbitControls } from "@react-three/drei";
-import { OrbitControls as OrbitControlsImpl} from 'three-stdlib'
+import { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 
 const CameraControls = ({ position, target }: Angle) => {
   const {
@@ -33,7 +33,7 @@ const CameraControls = ({ position, target }: Angle) => {
           z: target.z,
           ease: "power3.inOut",
         },
-        "<"
+        "<",
       );
     }
   }, [camera.position, position, target]);
