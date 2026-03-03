@@ -1,5 +1,5 @@
 import { PostIts } from "@/models/PostIt";
-import { Suspense, useCallback, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import Posit from "./models/Postit";
 import { useModal } from "../modal/modal.hook";
 import NotePad from "./models/NotePad";
@@ -7,9 +7,10 @@ import ChalkBoard from "./models/ChalkBoard";
 import { useCameraViewState } from "../camera-view/cameraView.provider";
 import { Html } from "@react-three/drei";
 import GuestPage from "./GuestPage";
+import { mockNotes } from "@/data/mockNotes";
 
 export default function GuestBook() {
-  const [notes, setNotes] = useState<PostIts[]>([]);
+  const [notes, setNotes] = useState<PostIts[]>(mockNotes);
   const { state, dispatch } = useCameraViewState();
   const { openModal } = useModal("NotePad");
   const updateNotes = (data: PostIts) => {
@@ -22,25 +23,6 @@ export default function GuestBook() {
       dispatch({ type: "TOGGLE_FIX" });
     }
   };
-  const fetchData = useCallback(async () => {
-    try {
-      const res = await fetch("/api/postit");
-      if (!res.ok) throw new Error("Failed to fetch");
-      const data = await res.json();
-      setNotes((prev) => {
-        if (JSON.stringify(prev) !== JSON.stringify(data.notes)) {
-          return data.notes;
-        }
-        return prev;
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
 
   return (
     <>

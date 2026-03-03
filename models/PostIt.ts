@@ -1,29 +1,6 @@
-import mongoose from "mongoose";
-
-export interface PostIts extends mongoose.Document {
+export interface PostIts {
   position: number[];
   text: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
-
-const PostItsSchema = new mongoose.Schema<PostIts>(
-  {
-    position: {
-      required: [true, "Please provide position"],
-      default: [0, 0],
-      type: [Number],
-    },
-    text: {
-      type: String,
-      default: "",
-      required: [true, "Please provide text."],
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
-
-export default mongoose.models.PostIt ||
-  mongoose.model<PostIts>("PostIt", PostItsSchema, "notes");

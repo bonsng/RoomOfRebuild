@@ -13,7 +13,6 @@ const NoteModal = forwardRef<ModalRef, NoteModalProps>(
     const [isOpen, setIsOpen] = useState(false);
     const [value, setValue] = useState<string>("");
     const { closeModal } = useModal("NotePad");
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleClose = () => {
       setIsOpen(false);
@@ -21,35 +20,20 @@ const NoteModal = forwardRef<ModalRef, NoteModalProps>(
       closeModal();
     };
 
-    const handleSubmit = async () => {
-      if (isSubmitting) return;
+    const handleSubmit = () => {
       if (value.trim() === "") {
         alert("내용을 입력해주세요.");
         return;
       }
-      try {
-        setIsSubmitting(true);
-        const randomX = Math.random() * 10 - 5;
-        const randomY = Math.random() * 16 - 8;
-        const newNote = {
-          position: [randomX, randomY],
-          text: value.trim(),
-        };
-        const res = await fetch("/api/postit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newNote),
-        });
-        const result = await res.json();
-        if (result.success && result.data) {
-          updateNotes(result.data);
-          handleClose();
-        }
-      } catch (err) {
-        console.error("Error:", err);
-      } finally {
-        setIsSubmitting(false);
-      }
+      const randomX = Math.random() * 10 - 5;
+      const randomY = Math.random() * 16 - 8;
+      const newNote: PostIts = {
+        position: [randomX, randomY],
+        text: value.trim(),
+        createdAt: new Date(),
+      };
+      updateNotes(newNote);
+      handleClose();
     };
 
     useEffect(() => {
@@ -132,10 +116,9 @@ const NoteModal = forwardRef<ModalRef, NoteModalProps>(
               <button
                 type="button"
                 onClick={handleSubmit}
-                disabled={isSubmitting}
-                className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60 active:scale-[0.99]"
+                className="inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 active:scale-[0.99]"
               >
-                {isSubmitting ? "등록 중..." : "등록"}
+                등록
               </button>
             </div>
           </div>
