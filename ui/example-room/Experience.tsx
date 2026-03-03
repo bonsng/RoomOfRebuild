@@ -7,7 +7,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import GuestBook from "./GuestBook";
 import { useCameraViewState } from "@/ui/camera-view/cameraView.provider";
 import PhotoAlbum from "./PhotoAlbum";
-// import { Environment, Html, useHelper } from "@react-three/drei";
+import { Environment, Stars } from "@react-three/drei";
 // import { useControls } from "leva";
 
 export default function Experience() {
@@ -29,7 +29,21 @@ export default function Experience() {
 
   return (
     <>
-      <color args={["#000"]} attach="background" />
+      <Environment
+        preset="night"
+        background
+        backgroundBlurriness={0.8}
+        backgroundIntensity={0.3}
+      />
+      <Stars
+        radius={100}
+        depth={50}
+        count={1000}
+        factor={4}
+        saturation={0}
+        fade
+        speed={1}
+      />
       <group ref={groupRef}>
         <Suspense fallback={null}>
           <Model />
@@ -40,8 +54,6 @@ export default function Experience() {
 
       <ambientLight intensity={1} />
       <Light />
-
-      {/* <Environment preset="night" background backgroundIntensity={10} /> */}
     </>
   );
 }
