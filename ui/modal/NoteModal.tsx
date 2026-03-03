@@ -2,6 +2,7 @@ import { forwardRef, useImperativeHandle, useState, useEffect } from "react";
 import { ModalRef } from "./modal.type";
 import { useModal } from "./modal.hook";
 import { PostIts } from "@/models/PostIt";
+import { X } from "lucide-react";
 export type NoteModalProps = {
   title: string;
   updateNotes: (arg: PostIts) => void;
@@ -92,9 +93,7 @@ const NoteModal = forwardRef<ModalRef, NoteModalProps>(
             onClick={handleClose}
             type="button"
           >
-            <span className="material-symbols-outlined text-2xl leading-none">
-              close
-            </span>
+            <X size={24} />
           </button>
 
           <div className="mb-4 space-y-1">

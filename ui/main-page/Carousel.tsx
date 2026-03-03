@@ -9,6 +9,7 @@ import image3 from "../../public/roomImages/roomImage4.png";
 import { useInterval } from "../../util/custom-hook/use-interval";
 import useScrollMove from "../../util/custom-hook/use-scroll-move";
 import Link from "next/link";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const images = [image1, image2, image3];
 
@@ -38,26 +39,16 @@ export default function Carousel() {
         ))}
       </div>
       <div className="flex justify-center align-middle lg:w-screen lg:mt-2">
-        <span
-          className="material-symbols-outlined cursor-pointer"
-          onClick={clickLeft}
-        >
-          chevron_left
-        </span>
+        <ChevronLeft className="cursor-pointer" onClick={clickLeft} />
         <div className="font-extralight">{num + 1} / 3</div>
-        <span
-          className="material-symbols-outlined cursor-pointer"
-          onClick={clickRight}
-        >
-          chevron_right
-        </span>
+        <ChevronRight className="cursor-pointer" onClick={clickRight} />
       </div>
       <Link
         href="/example-room"
         className="fixed bottom-6 left-1/2 -translate-x-1/2 flex lg:hidden align-middle rounded-3xl justify-between px-4 py-4 border-black border-[0.1px] w-[70vw] max-w-xs  font-normal bg-white z-50 hover:cursor-pointer hover:text-[#f6f5e8] hover:bg-onyx-black transition-all"
       >
         <span>예시공간 입장하기</span>
-        <span className="material-symbols-outlined">arrow_forward</span>
+        <ArrowRight />
       </Link>
     </>
   );
@@ -92,7 +83,7 @@ function CarouselCard({
             className="hidden lg:flex align-middle justify-between px-4 py-4 border-black border-[0.1px] w-1/2 font-normal mt-10 hover:cursor-pointer hover:text-[#f6f5e8] hover:bg-onyx-black transition-all"
           >
             <span>예시공간 입장하기</span>
-            <span className="material-symbols-outlined">arrow_forward</span>
+            <ArrowRight />
           </Link>
         </div>
       </div>

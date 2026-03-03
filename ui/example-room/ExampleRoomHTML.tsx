@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useCameraViewState } from "../../ui/camera-view/cameraView.provider";
 import RoomButtons from "./RoomButtons";
 import useMousePosition from "../../util/custom-hook/use-mouse-position";
+import { X } from "lucide-react";
 
 export default function ExampleRoomHTML() {
   const { ratio } = useMousePosition();
@@ -39,12 +40,11 @@ export default function ExampleRoomHTML() {
 
       {state.view === 4 ? (
         <div className="absolute bottom-10 w-screen flex justify-center bg-transparent">
-          <span
+          <X
             onClick={clickExit}
-            className="material-symbols-outlined text-5xl bg-[#5c5c5c3a] rounded-2xl hover:cursor-pointer hover:bg-[rgb(148,148,148)] transition-colors"
-          >
-            close
-          </span>
+            size={48}
+            className="bg-[#5c5c5c3a] rounded-2xl hover:cursor-pointer hover:bg-[rgb(148,148,148)] transition-colors"
+          />
         </div>
       ) : null}
     </>
