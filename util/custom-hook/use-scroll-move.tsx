@@ -38,7 +38,7 @@ const useScrollMove = () => {
       line.style.width = `${(1 - visiblePct) * 30}%`;
       line.style.transform = `translate3D(${-(1 - visiblePct) * 7.5}vw, 0, 0)`;
     });
-  }, []);
+  }, [clampNumber]);
 
   useEffect(() => {
     let observer: IntersectionObserver | undefined;

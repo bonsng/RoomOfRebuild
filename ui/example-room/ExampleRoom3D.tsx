@@ -15,7 +15,7 @@ export default function ExampleRoom3D() {
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [dispatch]);
 
   return (
     <Canvas

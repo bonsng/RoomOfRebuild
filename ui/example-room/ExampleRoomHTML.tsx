@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { useCameraViewState } from "../../ui/camera-view/cameraView.provider";
 import RoomButtons from "./RoomButtons";
 import useMousePosition from "../../util/custom-hook/use-mouse-position";
@@ -7,8 +7,8 @@ export default function ExampleRoomHTML() {
   const { ratio } = useMousePosition();
   const { state, dispatch } = useCameraViewState();
 
-  const [leftVisible, setLeftVisible] = useState(false);
-  const [rightVisible, setRightVisible] = useState(false);
+  const leftVisible = useMemo(() => ratio != null && ratio < 0.2, [ratio]);
+  const rightVisible = useMemo(() => ratio != null && ratio > 0.8, [ratio]);
 
   const clickLeft = () => {
     dispatch({
@@ -23,21 +23,6 @@ export default function ExampleRoomHTML() {
     dispatch({ type: "SET_VIEW", payload: 2 });
     dispatch({ type: "TOGGLE_FIX" });
   };
-
-  useEffect(() => {
-    if (ratio) {
-      if (ratio < 0.2) {
-        setLeftVisible(true);
-      } else if (ratio > 0.8) {
-        setRightVisible(true);
-      } else {
-        if (leftVisible || rightVisible) {
-          setLeftVisible(false);
-          setRightVisible(false);
-        }
-      }
-    }
-  }, [leftVisible, ratio, rightVisible]);
 
   return (
     <>

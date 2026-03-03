@@ -82,8 +82,8 @@ const Frame = ({ url, ...props }: { url: string }) => {
           <boxGeometry />
           <meshBasicMaterial toneMapped={true} />
         </mesh>
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image
-            alt={`image${url}`}
           raycast={() => null}
           ref={image}
           position={[0, 0, 0.8]}

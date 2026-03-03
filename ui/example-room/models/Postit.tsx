@@ -13,7 +13,9 @@ export default function Posit({
   const postitTextureNormal = useTexture(`/models/postit-normal.jpg`);
   const postitTextureRoughness = useTexture(`/models/postit-roughness.jpg`);
 
+  // eslint-disable-next-line react-hooks/immutability
   postitTexture.flipY = false;
+  // eslint-disable-next-line react-hooks/immutability
   postitTexture.colorSpace = THREE.SRGBColorSpace;
 
   const postitMaterial = new THREE.MeshStandardMaterial({

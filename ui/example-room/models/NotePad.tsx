@@ -1,5 +1,5 @@
-import { Clone, Html, useGLTF, useTexture } from "@react-three/drei";
-import { useState } from "react";
+import { Clone, useGLTF, useTexture } from "@react-three/drei";
+import { useMemo, useState } from "react";
 import * as THREE from "three";
 import Marker from "../components/Marker";
 
@@ -7,17 +7,24 @@ export default function NotePad({ onClick }: { onClick: () => void }) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const { scene }: any = useGLTF(`/models/notepad.glb`);
   const notePadTexture = useTexture(`/models/final2.jpg`);
-  notePadTexture.flipY = false;
-  notePadTexture.colorSpace = THREE.SRGBColorSpace;
-  const notePadMaterial = new THREE.MeshBasicMaterial({
-    map: notePadTexture,
-  });
-  scene.traverse((child: any) => {
-    if (child.isMesh) {
-      child.material = notePadMaterial;
-      child.castShadow = true;
-    }
-  });
+
+  const preparedScene = useMemo(() => {
+    // eslint-disable-next-line react-hooks/immutability
+    notePadTexture.flipY = false;
+    // eslint-disable-next-line react-hooks/immutability
+    notePadTexture.colorSpace = THREE.SRGBColorSpace;
+    const notePadMaterial = new THREE.MeshBasicMaterial({
+      map: notePadTexture,
+    });
+    scene.traverse((child: any) => {
+      if (child.isMesh) {
+        child.material = notePadMaterial;
+        child.castShadow = true;
+      }
+    });
+    return scene;
+  }, [scene, notePadTexture]);
+
   return (
     <>
       <Clone
@@ -31,7 +38,7 @@ export default function NotePad({ onClick }: { onClick: () => void }) {
           setIsHovered(false);
         }}
         position={[0, 0, 30]}
-        object={scene}
+        object={preparedScene}
       />
       {isHovered && (
         <Marker rotation={[0, -Math.PI / 2, 0]} position={[25, 7.3, 13.5]}>

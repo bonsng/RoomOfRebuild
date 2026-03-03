@@ -1,5 +1,5 @@
 import { PostIts } from "@/models/PostIt";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import Posit from "./models/Postit";
 import { useModal } from "../modal/modal.hook";
 import NotePad from "./models/NotePad";
@@ -22,22 +22,25 @@ export default function GuestBook() {
       dispatch({ type: "TOGGLE_FIX" });
     }
   };
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const res = await fetch("/api/postit");
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
-      if (JSON.stringify(notes) !== JSON.stringify(data.notes)) {
-        setNotes(data.notes);
-      }
+      setNotes((prev) => {
+        if (JSON.stringify(prev) !== JSON.stringify(data.notes)) {
+          return data.notes;
+        }
+        return prev;
+      });
     } catch (err) {
       console.error(err);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchData();
-  }, [notes]);
+  }, [fetchData]);
 
   return (
     <>

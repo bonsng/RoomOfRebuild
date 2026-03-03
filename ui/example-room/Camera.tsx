@@ -6,10 +6,7 @@ import { OrbitControls } from "@react-three/drei";
 import { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 
 const CameraControls = ({ position, target }: Angle) => {
-  const {
-    camera,
-    gl: { domElement },
-  } = useThree();
+  const { camera } = useThree();
   const ref = useRef<OrbitControlsImpl | null>(null);
 
   const cameraAnimate = useCallback(() => {
@@ -47,7 +44,6 @@ const CameraControls = ({ position, target }: Angle) => {
       enableZoom={false}
       enableRotate={false}
       ref={ref}
-      args={[camera, domElement]}
       target={[0, 11, -10]}
     />
   );

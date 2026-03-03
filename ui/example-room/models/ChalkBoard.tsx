@@ -1,6 +1,6 @@
 import { useCameraViewState } from "../../camera-view/cameraView.provider";
 import { Clone, useGLTF, useTexture } from "@react-three/drei";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import * as THREE from "three";
 import Marker from "../components/Marker";
 
@@ -13,17 +13,23 @@ export default function ChalkBoard({
   const { state } = useCameraViewState();
   const { scene }: any = useGLTF(`/models/chalkboard.glb`);
   const chalkboardTexture = useTexture(`/models/chalk.jpg`);
-  chalkboardTexture.flipY = false;
-  chalkboardTexture.colorSpace = THREE.SRGBColorSpace;
-  const chalkboardMaterial = new THREE.MeshStandardMaterial({
-    map: chalkboardTexture,
-  });
-  scene.traverse((child: any) => {
-    if (child.isMesh) {
-      child.material = chalkboardMaterial;
-      child.receiveShadow = true;
-    }
-  });
+
+  const preparedScene = useMemo(() => {
+    // eslint-disable-next-line react-hooks/immutability
+    chalkboardTexture.flipY = false;
+    // eslint-disable-next-line react-hooks/immutability
+    chalkboardTexture.colorSpace = THREE.SRGBColorSpace;
+    const chalkboardMaterial = new THREE.MeshStandardMaterial({
+      map: chalkboardTexture,
+    });
+    scene.traverse((child: any) => {
+      if (child.isMesh) {
+        child.material = chalkboardMaterial;
+        child.receiveShadow = true;
+      }
+    });
+    return scene;
+  }, [scene, chalkboardTexture]);
 
   return (
     <>
@@ -43,7 +49,7 @@ export default function ChalkBoard({
           setIsHovered(false);
         }}
         position={[0, 0, 30]}
-        object={scene}
+        object={preparedScene}
       />
       {isHovered && (
         <Marker rotation={[0, -Math.PI / 2, 0]} position={[27, 18, 10]}>
