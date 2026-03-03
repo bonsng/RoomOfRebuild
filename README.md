@@ -57,11 +57,11 @@ Three.js 로 구현된 가상 공간에 해당 인물의 **사진/동영상**, *
 
 ## 기술 스택
 
-| 분류 | 기술 |
-|------|------|
-| **Frontend** | Next.js 15, React 19, TypeScript |
+| 분류             | 기술                              |
+| ---------------- | --------------------------------- |
+| **Frontend**     | Next.js 15, React 19, TypeScript  |
 | **3D Rendering** | Three.js, React Three Fiber, Drei |
-| **Styling** | Tailwind CSS |
+| **Styling**      | Tailwind CSS                      |
 
 ---
 

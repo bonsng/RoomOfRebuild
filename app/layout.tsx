@@ -15,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="overflow-y-auto "><Providers>{children}</Providers> </body>
+      <body className="overflow-y-auto ">
+        <Providers>{children}</Providers>{" "}
+      </body>
     </html>
   );
 }

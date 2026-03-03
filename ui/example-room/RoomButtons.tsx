@@ -18,7 +18,7 @@ export default function RoomButtons({
         className={clsx(
           `absolute bg-transparent top-0 w-[10vw] h-screen transition-opacity cursor-pointer flex justify-center items-center  ${
             isLeft ? "left-0" : "right-0"
-          } ${visible ? "opacity-100" : "opacity-0"}`
+          } ${visible ? "opacity-100" : "opacity-0"}`,
         )}
       >
         {isLeft ? <LeftArrow /> : <RightArrow />}

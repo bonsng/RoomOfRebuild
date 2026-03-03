@@ -21,7 +21,11 @@ const initialState: ModalState = {
 };
 
 type ModalAction =
-  | { type: "OPEN_MODAL"; modalType: ModalTypes; props: ModalPropsMap[ModalTypes] }
+  | {
+      type: "OPEN_MODAL";
+      modalType: ModalTypes;
+      props: ModalPropsMap[ModalTypes];
+    }
   | { type: "CLOSE_MODAL" };
 
 export const ModalContext = createContext<{

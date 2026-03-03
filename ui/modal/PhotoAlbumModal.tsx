@@ -30,13 +30,13 @@ const PhotoAlbumModal = forwardRef<ModalRef, PhotoAlbumModalProps>(
 
     const handlePrev = useCallback(() => {
       setSelectedIndex((prev) =>
-        prev !== null ? (prev - 1 + photos.length) % photos.length : null
+        prev !== null ? (prev - 1 + photos.length) % photos.length : null,
       );
     }, [photos.length]);
 
     const handleNext = useCallback(() => {
       setSelectedIndex((prev) =>
-        prev !== null ? (prev + 1) % photos.length : null
+        prev !== null ? (prev + 1) % photos.length : null,
       );
     }, [photos.length]);
 
@@ -163,7 +163,7 @@ const PhotoAlbumModal = forwardRef<ModalRef, PhotoAlbumModalProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 PhotoAlbumModal.displayName = "PhotoAlbumModal";

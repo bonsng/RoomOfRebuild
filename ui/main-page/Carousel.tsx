@@ -75,9 +75,13 @@ function CarouselCard({
           className="w-full lg:w-1/2 h-1/2 lg:h-full object-cover"
         />
         <div className="w-full lg:w-1/2 h-1/2 lg:h-full lg:py-20 lg:pl-48 pl-8 py-8 flex flex-col justify-start bg-[#f6f5e8]">
-          <h1 className="text-3xl mt-6 lg:mt-0 lg:text-6xl font-semibold">RoomOf</h1>
-          <p className="text-xl mt-5 lg:mt-16 lg:text-3xl font-medium">{item.text}</p>
-            <p className="lg:mt-3 lg:text-lg">{item.subText}</p>
+          <h1 className="text-3xl mt-6 lg:mt-0 lg:text-6xl font-semibold">
+            RoomOf
+          </h1>
+          <p className="text-xl mt-5 lg:mt-16 lg:text-3xl font-medium">
+            {item.text}
+          </p>
+          <p className="lg:mt-3 lg:text-lg">{item.subText}</p>
           <Link
             href="/example-room"
             className="hidden lg:flex align-middle justify-between px-4 py-4 border-black border-[0.1px] w-1/2 font-normal mt-10 hover:cursor-pointer hover:text-[#f6f5e8] hover:bg-onyx-black transition-all"

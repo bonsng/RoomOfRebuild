@@ -8,7 +8,7 @@ type LoadingAction = { type: "START_LOADING" } | { type: "STOP_LOADING" };
 
 const loadingReducer = (
   loadingState: LoadingState,
-  action: LoadingAction
+  action: LoadingAction,
 ): LoadingState => {
   switch (action.type) {
     case "START_LOADING":

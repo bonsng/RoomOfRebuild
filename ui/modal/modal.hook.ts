@@ -9,7 +9,7 @@ export const useModal = <T extends ModalTypes>(modalType: T) => {
     (props: ModalProps<T>) => {
       dispatch({ type: "OPEN_MODAL", modalType, props });
     },
-    [dispatch, modalType]
+    [dispatch, modalType],
   );
 
   const closeModal = useCallback(() => {

@@ -28,7 +28,7 @@ export const CameraViewContext = createContext<{
 
 const cameraViewReducer = (
   state: CameraViewState,
-  action: CameraViewAction
+  action: CameraViewAction,
 ): CameraViewState => {
   switch (action.type) {
     case "SET_VIEW":

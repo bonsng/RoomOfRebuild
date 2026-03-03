@@ -22,7 +22,7 @@ export default {
     },
     fontFamily: {
       news: ["Newsreader", "serif"],
-    }
+    },
   },
   darkMode: "class",
   plugins: [],

@@ -45,13 +45,13 @@ const Frame = ({ url, ...props }: { url: string }) => {
         image.current.scale,
         [0.85 * (hovered ? 0.85 : 1), 0.9 * (hovered ? 0.905 : 1), 1],
         0.1,
-        dt
+        dt,
       );
       easing.dampC(
         frame.current.material.color,
         hovered ? "orange" : "white",
         0.1,
-        dt
+        dt,
       );
     }
   });
